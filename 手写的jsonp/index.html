@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script src="http.js"></script>
+<div id="div"></div>
+<script>
+
+    (function(window){
+
+
+        /*ajax请求数据我们需要传递参数*/
+        $jsonp(
+                'https://api.douban.com//v2/movie/in_theaters',
+                {
+                    count:10,start:5
+                },
+                /*最终执行的函数回调*/
+                function(data){
+                    console.log(data)
+                    window.document.getElementById('div').innerHTML = JSON.stringify(data)
+
+                }
+
+        )
+
+
+
+
+
+
+
+
+    })(window)
+
+
+
+</script>
+
+</body>
+</html>
